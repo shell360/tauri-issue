@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react'
-import './App.css'
 import { save, open } from '@tauri-apps/plugin-dialog'
 import { writeFile, readFile } from '@tauri-apps/plugin-fs'
 
@@ -12,9 +11,9 @@ function App() {
 
     let encoder = new TextEncoder()
     let data = encoder.encode('Hello World')
-    await writeFile(path, data)
+    await writeFile(path, data) // The content was not successfully written.
   }, [])
-  
+
   const onOpen = useCallback(async () => {
     const path = await open()
     if (!path) {
